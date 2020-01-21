@@ -1,4 +1,7 @@
 # bgmp-group-project-vineyard_fungal_assessment
+Pipeline for demultiplexing, deduplication, DADA2, & variance transformation of amplicon sequencing data
+generated from a novel adapter scheme developed in the McGuire Lab (University of Oregon)
+
 
 All dependancies required to run this pipeline exist within enviroment {NAME}
 
