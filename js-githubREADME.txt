@@ -1,4 +1,5 @@
-Pipeline for demultiplexing, deduplication, DADA2, & variance transformation of amplicon sequencing data generated from a novel adapter scheme developed in the McGuire Lab (University of Oregon)
+Pipeline for demultiplexing, deduplication, DADA2, & variance transformation of amplicon sequencing data 
+generated from a novel adapter scheme developed in the McGuire Lab (University of Oregon)
 
 
 Add a simple classifier script [options]
