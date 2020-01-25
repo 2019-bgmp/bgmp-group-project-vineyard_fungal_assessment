@@ -1,14 +1,5 @@
 #!/bin/bash
 
-#SBATCH --account=bgmp
-#SBATCH --partition=bgmp
-#SBATCH --job-name=AMPipeline
-#SBATCH --output=slurm-%j-%x.out
-#SBATCH --nodes=1
-#SBATCH --time=2-0:00:00
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=20
-
 module purge 
 ml easybuild  icc/2017.1.132-GCC-6.3.0-2.27  impi/2017.1.132 
 ml python/3.6.0
@@ -25,7 +16,7 @@ map='/home/bcosgrov/bgmp/fungroup/AMF_library-mappingfile.csv' # location of exp
 p1='CAGCCGCGGTAATTCCAGCT' #Primer 1 sequence, ie. WANDA
 p2='GAACCCAAACACTTTGGTTTCC' #Primer 2 Sequence ie. AML2
 q=5 # Minimum Line Quality score to be demultiplexed 
-t=2 # Tolerance to mismatches to primer1 and primer 2 
+t=2 # Tolerance of sequence to base pair mismatches in primer1 and primer 2 
 
 
 /usr/bin/time -v ./orient.py -R $r1 -r $r2 -I $i1 -i $i2 -b $map -t $t -P $p1 -p $p2 -q $q 
