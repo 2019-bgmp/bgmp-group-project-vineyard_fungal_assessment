@@ -15,3 +15,5 @@ All relavent .sh and .py files required for our pipeline are located within the 
 Analysis and results generated on TALAPAS
 
 NOTE : While running on Talapas the given .sh scripts need to be given #sbatch parameters and the first script requires to be executed in the same folder as the sam files you wish to run analysis on.
+
+![](pipeline_diagram.png)
