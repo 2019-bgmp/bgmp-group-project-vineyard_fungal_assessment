@@ -18,6 +18,9 @@ meta=/home/bcosgrov/bgmp/fungroup/191119_VMP-ALLmeta.csv
 ###NOTE: threshold is a representation of how many times a certain species/genera/etc must occur to be included in the output. 
 ###For more precise rarification threshold ranges should be changed to better fit the data on hand.
 
+###NOTE: list of types - xgb = XGBoost, linear = Linear regression, mlp = Multilayer Perceptron
+###if linear or mlp models are used and results are uninformative, adjust number of dense layers in the classifier function (line 38 of cclassifier_test.py)
+
 ./classifier_test.py --input_data $input --input_metadata $meta --output test1 --target=subAVA --type=xgb --threshold=1
 ./classifier_test.py --input_data $input --input_metadata $meta --output test2 --target=subAVA --type=xgb --threshold=2
 ./classifier_test.py --input_data $input --input_metadata $meta --output test3 --target=subAVA --type=xgb --threshold=3
