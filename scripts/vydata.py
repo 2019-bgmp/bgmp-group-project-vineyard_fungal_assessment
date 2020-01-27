@@ -10,12 +10,13 @@ import pandas as pd
 import pdb
 class VyData():
     def __init__(self,threshold=50,data_location='/home/jsakai/bgmp/fungroup/bgmp-group-project-vineyard_funga_assessnent/AMF_SSUmgmtVT.txt'
-                 ,meta_data_location='/home/jsakai/bgmp/fungroup/bgmp-group-project-vineyard_fungal_assessment/191119_VMP-ALLmeta.csv'):
+                 ,meta_data_location='/home/jsakai/bgmp/fungroup/bgmp-group-project-vineyard_fungal_assessment/191119_VMP-ALLmeta.csv'): 
+        ###replace these inputs with the absolute path of the data2 output reference and metadata file respectively.
         self.md=  pd.read_csv(meta_data_location,sep=',',header=(0),index_col='Sample ID',dtype=str).replace(np.nan, 'Missing', regex=True)
         self.df = pd.read_csv(data_location,sep='\t',header=(0)).replace(np.nan, '?', regex=True)
         vcounts=np.sum(self.df!=0,axis=1)
         ###Number of points a species must exist in to be considered
-
+        ###NOTE: list currently doesn't include species, if input data goes down to species a designated output column needs to be added to the the line below
         self.s_list=['-'.join(i[1].tolist()+[str(index)]) for index,i in enumerate(self.df[['Order','Family','Genus']].iterrows())]
         c_name={}    
         for i,v in enumerate(self.s_list):
@@ -25,7 +26,7 @@ class VyData():
         drop_i=[c_name[i] for i,v in enumerate(vcounts) if v < threshold]
 
         self.df=self.df.drop(drop_i,axis=0)
-        
+        ###NOTE: list currently doesn't include species, if input data goes down to species a designated output column needs to be added to the the line below
         self.vocab_list=['-'.join(i[1].tolist()+[str(index)]) for index,i in enumerate(self.df[['Kingdom','Phylum','Class','Order','Family','Genus']].iterrows())]
 
         self.threshold=threshold
